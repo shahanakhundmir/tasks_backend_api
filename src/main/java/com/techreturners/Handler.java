@@ -1,6 +1,9 @@
 package com.serverless;
 
 import java.util.Collections;
+import com.techreturners.model.Task;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,13 +17,20 @@ public class Handler implements RequestHandler<Map<String, Object>, ApiGatewayRe
 	private static final Logger LOG = LogManager.getLogger(Handler.class);
 
 	@Override
-	public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
+	public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context){
 		LOG.info("received: {}", input);
-		Response responseBody = new Response("Hello Tech Returners", input);
+
+		Task t1 = new Task("12345", "this is task 1",false );
+		Task t2 = new Task("67890", "this is task 2",false );
+		//Task t3= null;
+		//System.out.println(t3.getDescription());
+		List<Task>tasks = new ArrayList<>();
+		tasks.add(t1);	
+		tasks.add(t2);	
+
 		return ApiGatewayResponse.builder()
 				.setStatusCode(200)
-				.setObjectBody(responseBody)
-				.setHeaders(Collections.singletonMap("X-Powered-By", "AWS Lambda & serverless"))
+				.setObjectBody(tasks)
 				.build();
 	}
 }

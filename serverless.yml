@@ -11,7 +11,7 @@ provider:
   profile: serverless
 
 package:
-  artifact: target/hello-dev.jar
+  artifact: target/tasks-api-java-dev.jar
 
 functions:
   tasks-api:

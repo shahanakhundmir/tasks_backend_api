@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tasks-backend-api/dev/1618173399242-2021-04-11T20:36:39.242Z/target/hello-dev.jar"
+          "S3Key": "serverless/tasks-backend-api/dev/1618239955027-2021-04-12T15:05:55.027Z/target/tasks-api-java-dev.jar"
         },
         "Handler": "com.serverless.Handler",
         "Runtime": "java8",
@@ -179,14 +179,14 @@
         "TasksDashapiLogGroup"
       ]
     },
-    "TasksDashapiLambdaVersionbc64rB9G0KlvJp6JxFOEVnO8njQxvgaeAZWisi1Qmw": {
+    "TasksDashapiLambdaVersionbYKVkgn44wWwSOjqw530xVSHzK1w7VN0hgNyoY7Sfs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TasksDashapiLambdaFunction"
         },
-        "CodeSha256": "ZJybFwIf5a6cdEmTwy3izHQQtlh9pzgEVwkfGXzPqso="
+        "CodeSha256": "mo2XZ6wBeJrRRvRq7MNUz5lzWfHg+EoobFlt3u5P8K0="
       }
     },
     "ApiGatewayRestApi": {
@@ -259,7 +259,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618173396286": {
+    "ApiGatewayDeployment1618239951846": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -318,7 +318,7 @@
     "TasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TasksDashapiLambdaVersionbc64rB9G0KlvJp6JxFOEVnO8njQxvgaeAZWisi1Qmw"
+        "Ref": "TasksDashapiLambdaVersionbYKVkgn44wWwSOjqw530xVSHzK1w7VN0hgNyoY7Sfs"
       }
     },
     "ServiceEndpoint": {
