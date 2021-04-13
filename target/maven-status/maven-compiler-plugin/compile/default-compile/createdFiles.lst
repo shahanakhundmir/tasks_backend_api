@@ -1,5 +1,5 @@
-com\serverless\Handler.class
 com\techreturners\model\Task.class
 com\serverless\ApiGatewayResponse$Builder.class
 com\serverless\Response.class
 com\serverless\ApiGatewayResponse.class
+com\serverless\GetTasksHandler.class

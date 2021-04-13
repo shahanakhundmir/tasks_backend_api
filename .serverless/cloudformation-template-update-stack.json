@@ -71,10 +71,10 @@
         }
       }
     },
-    "TasksDashapiLogGroup": {
+    "GetDashtasksDashapiLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-tasks-api"
+        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-tasks-api"
       }
     },
     "IamRoleLambdaExecution": {
@@ -154,18 +154,18 @@
         }
       }
     },
-    "TasksDashapiLambdaFunction": {
+    "GetDashtasksDashapiLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tasks-backend-api/dev/1618307803488-2021-04-13T09:56:43.488Z/target/tasks-api-java-dev.jar"
+          "S3Key": "serverless/tasks-backend-api/dev/1618311411885-2021-04-13T10:56:51.885Z/target/tasks-api-java-dev.jar"
         },
-        "Handler": "com.serverless.Handler",
+        "Handler": "com.serverless.GetTasksHandler",
         "Runtime": "java8",
-        "FunctionName": "tasks-backend-api-dev-tasks-api",
+        "FunctionName": "tasks-backend-api-dev-get-tasks-api",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -176,17 +176,17 @@
         }
       },
       "DependsOn": [
-        "TasksDashapiLogGroup"
+        "GetDashtasksDashapiLogGroup"
       ]
     },
-    "TasksDashapiLambdaVersionKhBhD8h5n0s74k8mHkajPgOA9qrLKHGJthVWC9Ll0": {
+    "GetDashtasksDashapiLambdaVersionDDaxFs6qeXPPuf1iStGtK5Kqb6P0dfCxJDlg6YAU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "TasksDashapiLambdaFunction"
+          "Ref": "GetDashtasksDashapiLambdaFunction"
         },
-        "CodeSha256": "xtlSBQtcFYLKFRByYJJ8APparHAP4Z217ZwktNl7Ff4="
+        "CodeSha256": "Iqr+daO1MjjknVYjFmEBWDIsE/BTcaPQ8lHkj+Wz92Q="
       }
     },
     "ApiGatewayRestApi": {
@@ -201,7 +201,7 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceUserid": {
+    "ApiGatewayResourceUsers": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -210,17 +210,17 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "userid",
+        "PathPart": "users",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayResourceUseridUseridVar": {
+    "ApiGatewayResourceUsersUseridVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceUserid"
+          "Ref": "ApiGatewayResourceUsers"
         },
         "PathPart": "{userId}",
         "RestApiId": {
@@ -228,11 +228,11 @@
         }
       }
     },
-    "ApiGatewayResourceUseridUseridVarTask": {
+    "ApiGatewayResourceUsersUseridVarTask": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceUseridUseridVar"
+          "Ref": "ApiGatewayResourceUsersUseridVar"
         },
         "PathPart": "task",
         "RestApiId": {
@@ -240,13 +240,13 @@
         }
       }
     },
-    "ApiGatewayMethodUseridUseridVarTaskGet": {
+    "ApiGatewayMethodUsersUseridVarTaskGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUseridUseridVarTask"
+          "Ref": "ApiGatewayResourceUsersUseridVarTask"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -271,7 +271,7 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "TasksDashapiLambdaFunction",
+                    "GetDashtasksDashapiLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -283,7 +283,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618307800950": {
+    "ApiGatewayDeployment1618311408780": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -292,15 +292,15 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodUseridUseridVarTaskGet"
+        "ApiGatewayMethodUsersUseridVarTaskGet"
       ]
     },
-    "TasksDashapiLambdaPermissionApiGateway": {
+    "GetDashtasksDashapiLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "TasksDashapiLambdaFunction",
+            "GetDashtasksDashapiLambdaFunction",
             "Arn"
           ]
         },
@@ -339,10 +339,10 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
-    "TasksDashapiLambdaFunctionQualifiedArn": {
+    "GetDashtasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TasksDashapiLambdaVersionKhBhD8h5n0s74k8mHkajPgOA9qrLKHGJthVWC9Ll0"
+        "Ref": "GetDashtasksDashapiLambdaVersionDDaxFs6qeXPPuf1iStGtK5Kqb6P0dfCxJDlg6YAU"
       }
     },
     "ServiceEndpoint": {

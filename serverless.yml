@@ -14,11 +14,11 @@ package:
   artifact: target/tasks-api-java-dev.jar
 
 functions:
-  tasks-api:
-    handler: com.serverless.Handler
+  get-tasks-api:
+    handler: com.serverless.GetTasksHandler
 
     events:
       - http:
-          path: userid/{userId}/task
+          path: users/{userId}/task
           method: get
 
