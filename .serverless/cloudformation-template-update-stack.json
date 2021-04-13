@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tasks-backend-api/dev/1618239955027-2021-04-12T15:05:55.027Z/target/tasks-api-java-dev.jar"
+          "S3Key": "serverless/tasks-backend-api/dev/1618307803488-2021-04-13T09:56:43.488Z/target/tasks-api-java-dev.jar"
         },
         "Handler": "com.serverless.Handler",
         "Runtime": "java8",
@@ -179,14 +179,14 @@
         "TasksDashapiLogGroup"
       ]
     },
-    "TasksDashapiLambdaVersionbYKVkgn44wWwSOjqw530xVSHzK1w7VN0hgNyoY7Sfs": {
+    "TasksDashapiLambdaVersionKhBhD8h5n0s74k8mHkajPgOA9qrLKHGJthVWC9Ll0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TasksDashapiLambdaFunction"
         },
-        "CodeSha256": "mo2XZ6wBeJrRRvRq7MNUz5lzWfHg+EoobFlt3u5P8K0="
+        "CodeSha256": "xtlSBQtcFYLKFRByYJJ8APparHAP4Z217ZwktNl7Ff4="
       }
     },
     "ApiGatewayRestApi": {
@@ -201,7 +201,7 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceTasks": {
+    "ApiGatewayResourceUserid": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -210,19 +210,43 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "tasks",
+        "PathPart": "userid",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodTasksGet": {
+    "ApiGatewayResourceUseridUseridVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceUserid"
+        },
+        "PathPart": "{userId}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceUseridUseridVarTask": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceUseridUseridVar"
+        },
+        "PathPart": "task",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodUseridUseridVarTaskGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceTasks"
+          "Ref": "ApiGatewayResourceUseridUseridVarTask"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -259,7 +283,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618239951846": {
+    "ApiGatewayDeployment1618307800950": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -268,7 +292,7 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodTasksGet"
+        "ApiGatewayMethodUseridUseridVarTaskGet"
       ]
     },
     "TasksDashapiLambdaPermissionApiGateway": {
@@ -318,7 +342,7 @@
     "TasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TasksDashapiLambdaVersionbYKVkgn44wWwSOjqw530xVSHzK1w7VN0hgNyoY7Sfs"
+        "Ref": "TasksDashapiLambdaVersionKhBhD8h5n0s74k8mHkajPgOA9qrLKHGJthVWC9Ll0"
       }
     },
     "ServiceEndpoint": {

@@ -19,6 +19,6 @@ functions:
 
     events:
       - http:
-          path: tasks
+          path: userid/{userId}/task
           method: get
 
