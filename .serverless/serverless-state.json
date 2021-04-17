@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/tasks-backend-api/dev/1618311411885-2021-04-13T10:56:51.885Z/target/tasks-api-java-dev.jar"
+                "S3Key": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z/target/tasks-api-java-dev.jar"
               },
               "Handler": "com.serverless.GetTasksHandler",
               "Runtime": "java8",
@@ -193,14 +193,14 @@
               "GetDashtasksDashapiLogGroup"
             ]
           },
-          "GetDashtasksDashapiLambdaVersionDDaxFs6qeXPPuf1iStGtK5Kqb6P0dfCxJDlg6YAU": {
+          "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashtasksDashapiLambdaFunction"
               },
-              "CodeSha256": "Iqr+daO1MjjknVYjFmEBWDIsE/BTcaPQ8lHkj+Wz92Q="
+              "CodeSha256": "2lzwg/sTK3cjri8kLFDQ8GyCdbEOuCjGrr6LsMYSlqw="
             }
           },
           "ApiGatewayRestApi": {
@@ -297,7 +297,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1618311408780": {
+          "ApiGatewayDeployment1618655932581": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -356,7 +356,7 @@
           "GetDashtasksDashapiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashtasksDashapiLambdaVersionDDaxFs6qeXPPuf1iStGtK5Kqb6P0dfCxJDlg6YAU"
+              "Ref": "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q"
             }
           },
           "ServiceEndpoint": {
@@ -487,7 +487,7 @@
         "timeout": 6,
         "runtime": "java8",
         "vpc": {},
-        "versionLogicalId": "GetDashtasksDashapiLambdaVersionDDaxFs6qeXPPuf1iStGtK5Kqb6P0dfCxJDlg6YAU"
+        "versionLogicalId": "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q"
       }
     },
     "configValidationMode": "warn",
@@ -503,7 +503,7 @@
       },
       "package": {
         "artifact": "target/tasks-api-java-dev.jar",
-        "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618311411885-2021-04-13T10:56:51.885Z"
+        "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -512,7 +512,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618311411885-2021-04-13T10:56:51.885Z",
+    "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z",
     "artifact": "target/tasks-api-java-dev.jar"
   }
 }
