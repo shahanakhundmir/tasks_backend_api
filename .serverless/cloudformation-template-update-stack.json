@@ -161,13 +161,21 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tasks-backend-api/dev/1618675846823-2021-04-17T16:10:46.823Z/target/tasks-api-java-dev.jar"
+          "S3Key": "serverless/tasks-backend-api/dev/1618683487105-2021-04-17T18:18:07.105Z/target/tasks-api-java-dev.jar"
         },
-        "Handler": "com.serverless.GetRestaurantHandler",
+        "Handler": "com.impact.GetRestaurantHandler",
         "Runtime": "java8",
         "FunctionName": "tasks-backend-api-dev-get-restaurant-api",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "nandosdb",
+            "DB_USER": "root",
+            "DB_PASSWORD": "shahanayogitawill2021!"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -179,14 +187,14 @@
         "GetDashrestaurantDashapiLogGroup"
       ]
     },
-    "GetDashrestaurantDashapiLambdaVersionRokOIRtZyToXgL3E4heHMk2vp5aN8pmkE9WeIjoiZ8s": {
+    "GetDashrestaurantDashapiLambdaVersiono8jdpViejw73SXVnQ3c6XGvqKwulSR8E9cXc5QtFE4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashrestaurantDashapiLambdaFunction"
         },
-        "CodeSha256": "HhlLz2bOL6OGazmUtH63XqThz5W2VOE7RC3uyZns+WU="
+        "CodeSha256": "ZDFDn5ssBruYdj+Qwstg3CdsH34oi6hvfJMshObbYUs="
       }
     },
     "ApiGatewayRestApi": {
@@ -259,7 +267,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618675842042": {
+    "ApiGatewayDeployment1618683484546": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -318,7 +326,7 @@
     "GetDashrestaurantDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashrestaurantDashapiLambdaVersionRokOIRtZyToXgL3E4heHMk2vp5aN8pmkE9WeIjoiZ8s"
+        "Ref": "GetDashrestaurantDashapiLambdaVersiono8jdpViejw73SXVnQ3c6XGvqKwulSR8E9cXc5QtFE4"
       }
     },
     "ServiceEndpoint": {
