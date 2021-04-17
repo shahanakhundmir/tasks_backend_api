@@ -63,9 +63,9 @@ public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyReque
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
    			connection = DriverManager.getConnection(
-         		String.format("jdbc:mysql//%s/%s?user=%s&password=%s","3306",
-				 "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com", "nandosdb", "root", "xxx"));
-				 preparedStatement = connection.prepareStatement("select * from restaurant");
+         		String.format("jdbc:mysql://%s/%s?user=%s&password=%s",
+				 "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com", "nandosdb", "root", "shahanayogitawill2021!"));
+				 preparedStatement = connection.prepareStatement("select * from Restaurant");
 				 resultSet = preparedStatement.executeQuery();
 
 				 while(resultSet.next()){
