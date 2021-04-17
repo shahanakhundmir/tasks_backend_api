@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.*;
 import java.text.*;
+//import java.sql.Date;
+
+
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,27 +34,28 @@ public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyReque
 	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context){
 		LOG.info("received the request");
 
-		int restId = parse.Int(request.getPathParameters().get("rest_id"));
+		//String restId = request.getPathParameters().get("restId");
 		List<Restaurant>restaurants = new ArrayList<>();
 
-		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-        //String formatted1 = f.format("2001-01-01");
-		Date d1 = f.parse("2001-01-01");
 		
-		//String formatted2 = f.format("2001-02-01");
-		Date d2 = f.parse("2001-01-02");
+		try{
+			SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+			String dateString = f.format( new Date());
+			Date date = f.parse ( "2021-01-31" );   
 
-
-
-		if (restId == 001){
-			Restaurant r1 = new Restaurant(001, "this is rest 1","branchx", "blah", d1, d1, 002, "hhh", "ggg" );
+			//if ( Integer.parseInt(restId) == 001){
+			Restaurant r1 = new Restaurant(001, "this is rest 1","branchx", "blah", date, date, 002, "hhh", "ggg" );
 			restaurants.add(r1);	
-
+			Restaurant r2 = new Restaurant(002, "this is rest 2","branchy", "blahx",date, date, 002, "hhhx", "gggx" );
+			restaurants.add(r2);	
+			//}
+			//else{
+				
+//}
 		}
-		else{
-			Restaurant r1 = new Restaurant(002, "this is rest 2","branchy", "blahx",d2, d2, 002, "hhhx", "gggx" );
-			restaurants.add(r1);	
-		}
+		catch(ParseException e)
+		{LOG.error(e);}
+		
 		
 		APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
 		response.setStatusCode(200);

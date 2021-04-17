@@ -85,10 +85,10 @@
               }
             }
           },
-          "GetDashtasksDashapiLogGroup": {
+          "GetDashrestaurantDashapiLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-tasks-api"
+              "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-restaurant-api"
             }
           },
           "IamRoleLambdaExecution": {
@@ -168,18 +168,18 @@
               }
             }
           },
-          "GetDashtasksDashapiLambdaFunction": {
+          "GetDashrestaurantDashapiLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z/target/tasks-api-java-dev.jar"
+                "S3Key": "serverless/tasks-backend-api/dev/1618670115390-2021-04-17T14:35:15.390Z/target/tasks-api-java-dev.jar"
               },
-              "Handler": "com.serverless.GetTasksHandler",
+              "Handler": "com.serverless.GetRestaurantHandler",
               "Runtime": "java8",
-              "FunctionName": "tasks-backend-api-dev-get-tasks-api",
+              "FunctionName": "tasks-backend-api-dev-get-restaurant-api",
               "MemorySize": 1024,
               "Timeout": 6,
               "Role": {
@@ -190,17 +190,17 @@
               }
             },
             "DependsOn": [
-              "GetDashtasksDashapiLogGroup"
+              "GetDashrestaurantDashapiLogGroup"
             ]
           },
-          "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q": {
+          "GetDashrestaurantDashapiLambdaVersiona6CTxgjcwlfJcAgiJXVFJisrNWgQItJgscUIbBwc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "GetDashtasksDashapiLambdaFunction"
+                "Ref": "GetDashrestaurantDashapiLambdaFunction"
               },
-              "CodeSha256": "2lzwg/sTK3cjri8kLFDQ8GyCdbEOuCjGrr6LsMYSlqw="
+              "CodeSha256": "WSLms95xQqf5PyWnUXitMlYBfPXiyRNNF6zoXCDUPnQ="
             }
           },
           "ApiGatewayRestApi": {
@@ -215,7 +215,7 @@
               "Policy": ""
             }
           },
-          "ApiGatewayResourceUsers": {
+          "ApiGatewayResourceRest": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
               "ParentId": {
@@ -224,43 +224,19 @@
                   "RootResourceId"
                 ]
               },
-              "PathPart": "users",
+              "PathPart": "rest",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
             }
           },
-          "ApiGatewayResourceUsersUseridVar": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Ref": "ApiGatewayResourceUsers"
-              },
-              "PathPart": "{userId}",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayResourceUsersUseridVarTask": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Ref": "ApiGatewayResourceUsersUseridVar"
-              },
-              "PathPart": "task",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodUsersUseridVarTaskGet": {
+          "ApiGatewayMethodRestGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "GET",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceUsersUseridVarTask"
+                "Ref": "ApiGatewayResourceRest"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -285,7 +261,7 @@
                       ":lambda:path/2015-03-31/functions/",
                       {
                         "Fn::GetAtt": [
-                          "GetDashtasksDashapiLambdaFunction",
+                          "GetDashrestaurantDashapiLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -297,7 +273,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1618655932581": {
+          "ApiGatewayDeployment1618670111654": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -306,15 +282,15 @@
               "StageName": "dev"
             },
             "DependsOn": [
-              "ApiGatewayMethodUsersUseridVarTaskGet"
+              "ApiGatewayMethodRestGet"
             ]
           },
-          "GetDashtasksDashapiLambdaPermissionApiGateway": {
+          "GetDashrestaurantDashapiLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "GetDashtasksDashapiLambdaFunction",
+                  "GetDashrestaurantDashapiLambdaFunction",
                   "Arn"
                 ]
               },
@@ -353,10 +329,10 @@
               "Ref": "ServerlessDeploymentBucket"
             }
           },
-          "GetDashtasksDashapiLambdaFunctionQualifiedArn": {
+          "GetDashrestaurantDashapiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q"
+              "Ref": "GetDashrestaurantDashapiLambdaVersiona6CTxgjcwlfJcAgiJXVFJisrNWgQItJgscUIbBwc"
             }
           },
           "ServiceEndpoint": {
@@ -470,24 +446,24 @@
     },
     "pluginsData": {},
     "functions": {
-      "get-tasks-api": {
-        "handler": "com.serverless.GetTasksHandler",
+      "get-restaurant-api": {
+        "handler": "com.serverless.GetRestaurantHandler",
         "events": [
           {
             "http": {
-              "path": "users/{userId}/task",
+              "path": "rest",
               "method": "get",
               "integration": "AWS_PROXY"
             }
           }
         ],
-        "name": "tasks-backend-api-dev-get-tasks-api",
+        "name": "tasks-backend-api-dev-get-restaurant-api",
         "package": {},
         "memory": 1024,
         "timeout": 6,
         "runtime": "java8",
         "vpc": {},
-        "versionLogicalId": "GetDashtasksDashapiLambdaVersionu93sSt4swaJtJ1aFGTADKt7MpyabajbArnOJBvx3Q"
+        "versionLogicalId": "GetDashrestaurantDashapiLambdaVersiona6CTxgjcwlfJcAgiJXVFJisrNWgQItJgscUIbBwc"
       }
     },
     "configValidationMode": "warn",
@@ -503,7 +479,7 @@
       },
       "package": {
         "artifact": "target/tasks-api-java-dev.jar",
-        "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z"
+        "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618670115390-2021-04-17T14:35:15.390Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -512,7 +488,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618655938154-2021-04-17T10:38:58.154Z",
+    "artifactDirectoryName": "serverless/tasks-backend-api/dev/1618670115390-2021-04-17T14:35:15.390Z",
     "artifact": "target/tasks-api-java-dev.jar"
   }
 }

@@ -19,6 +19,6 @@ functions:
 
     events:
       - http:
-          path: rest/{restId}/task
+          path: rest
           method: get
 
