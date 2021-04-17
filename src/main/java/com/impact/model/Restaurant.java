@@ -14,8 +14,6 @@ public class Restaurant{
     private String application_id;
     private String version_code;
 
-
-
     public Restaurant(int rest_id, String rest_name, String rest_branch, String allergen_safety, Date sys_creation_date, Date sys_update_date,
      int user_id, String application_id, String version_code){
         

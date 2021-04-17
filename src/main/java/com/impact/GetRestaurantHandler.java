@@ -8,6 +8,8 @@ import com.impact.model.Allergen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
+import java.text.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,29 +25,39 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
-	private static final Logger LOG = LogManager.getLogger(GetTasksHandler.class);
+	private static final Logger LOG = LogManager.getLogger(GetRestaurantHandler.class);
 
 	@Override
 	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context){
 		LOG.info("received the request");
 
-		String userId = request.getPathParameters().get("userId");
-		List<Task>tasks = new ArrayList<>();
+		int restId = parse.Int(request.getPathParameters().get("rest_id"));
+		List<Restaurant>restaurants = new ArrayList<>();
 
-		if (userId.equals("abcd123")){
-			Task t1 = new Task("12345", "this is task 1",false );
-			tasks.add(t1);	
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        //String formatted1 = f.format("2001-01-01");
+		Date d1 = f.parse("2001-01-01");
+		
+		//String formatted2 = f.format("2001-02-01");
+		Date d2 = f.parse("2001-01-02");
+
+
+
+		if (restId == 001){
+			Restaurant r1 = new Restaurant(001, "this is rest 1","branchx", "blah", d1, d1, 002, "hhh", "ggg" );
+			restaurants.add(r1);	
+
 		}
 		else{
-			Task t2 = new Task("67890", "this is task 2",false );
-			tasks.add(t2);
+			Restaurant r1 = new Restaurant(002, "this is rest 2","branchy", "blahx",d2, d2, 002, "hhhx", "gggx" );
+			restaurants.add(r1);	
 		}
 		
 		APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
 		response.setStatusCode(200);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try{
-			String responseBody = objectMapper.writeValueAsString(tasks);
+			String responseBody = objectMapper.writeValueAsString(restaurants);
 			response.setBody(responseBody);
 		}
 		catch(JsonProcessingException e)
