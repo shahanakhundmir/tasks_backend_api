@@ -7,5 +7,6 @@ com\serverless\ApiGatewayResponse.class
 com\impact\model\MenuItem.class
 com\impact\model\Allergen.class
 com\impact\GetRestaurantHandler.class
+com\impact\GetAllergensAsPerSelectedMenuItem.class
 com\impact\GetMenuItemAsPerSelectedAllergen.class
 com\impact\GetMenuItemHandler.class
