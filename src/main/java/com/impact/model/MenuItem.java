@@ -12,6 +12,7 @@ public class MenuItem {
     private String ingredients;
     private String sub_menu;
     private double price;
+    private int rest_id;
     private Date sys_creation_date;
     private Date sys_update_date;
     private int user_id;
@@ -20,7 +21,7 @@ public class MenuItem {
 
     public MenuItem(int item_id, String name, String image, String short_desc, String full_desc, 
     String factory_contam, String kitchen_contam, String ingredients, String sub_menu, 
-    double price, Date sys_creation_date, Date sys_update_date, int user_id, String application_id, String version_code) {
+    double price, int rest_id,Date sys_creation_date, Date sys_update_date, int user_id, String application_id, String version_code) {
         this.item_id = item_id;
         this.name = name;
         this.image=image;
@@ -31,6 +32,7 @@ public class MenuItem {
         this.ingredients = ingredients;
         this.sub_menu = sub_menu;
         this.price = price;
+        this.rest_id=rest_id;
         this.sys_creation_date = sys_creation_date;
         this.sys_update_date = sys_update_date;
         this.user_id = user_id;
@@ -76,6 +78,9 @@ public class MenuItem {
 
     public double getPrice() {
         return price;
+    }
+    public int getRest_id() {
+        return rest_id;
     }
 
     public Date getSys_creation_date() {

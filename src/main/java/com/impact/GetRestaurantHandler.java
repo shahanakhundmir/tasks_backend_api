@@ -1,6 +1,7 @@
 package com.impact;
 import com.impact.model.Restaurant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,6 +13,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Map;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
@@ -67,6 +70,9 @@ public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyReque
       }
       APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
       response.setStatusCode(200);
+      Map<String, String> headers = new HashMap<>();
+      headers.put("Access-Control-Allow-Origin", "*");
+      response.setHeaders(headers);
       ObjectMapper objectMapper = new ObjectMapper();
       try{
          String responseBody = objectMapper.writeValueAsString(restaurants);

@@ -13,7 +13,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 public class GetMenuItemAsPerSelectedSubMenu implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
     private static final Logger LOG = LogManager.getLogger(GetAllergenHandler.class);
     private Connection connection= null;
@@ -60,6 +63,7 @@ public class GetMenuItemAsPerSelectedSubMenu implements RequestHandler<APIGatewa
                         resultSet.getString("ingredients"),
                         resultSet.getString("sub_menu"),
                         resultSet.getDouble("price"),
+                        resultSet.getInt("rest_id"),
                         resultSet.getDate("sys_creation_date"),
                         resultSet.getDate("sys_update_date"),
                         resultSet.getInt("user_id"),
@@ -76,6 +80,9 @@ public class GetMenuItemAsPerSelectedSubMenu implements RequestHandler<APIGatewa
         }
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
         response.setStatusCode(200);
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Access-Control-Allow-Origin", "*");
+        response.setHeaders(headers);
         ObjectMapper objectMapper = new ObjectMapper();
         try{
             String responseBody = objectMapper.writeValueAsString(menuItems);
