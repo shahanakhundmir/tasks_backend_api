@@ -1,5 +1,3 @@
-
-
 service: tasks-backend-api
 frameworkVersion: '2'
 
@@ -9,16 +7,53 @@ provider:
   #lambdaHashingVersion: 20201221
   region: eu-west-2
   profile: serverless
+  environment:
+    DB_HOST: ${file(./config.dev.json):DB_HOST}
+    DB_NAME: ${file(./config.dev.json):DB_NAME}
+    DB_USER: ${file(./config.dev.json):DB_USER}
+    DB_PASSWORD: ${file(./config.dev.json):DB_PASSWORD}
 
 package:
   artifact: target/tasks-api-java-dev.jar
 
 functions:
-  get-tasks-api:
-    handler: com.serverless.GetTasksHandler
+  get-restaurant-api:
+    handler: com.impact.GetRestaurantHandler
 
     events:
       - http:
-          path: users/{userId}/task
+          path: /restaurants
+          method: get
+
+  get-allergen-api:
+    handler: com.impact.GetAllergenHandler
+
+    events:
+      - http:
+          path: /allergens
+          method: get
+
+  get-menuitem-api:
+    handler: com.impact.GetMenuItemHandler
+
+    events:
+      - http:
+          path: /menuitems
+          method: get
+
+  get-menuitemAsSelectedAllergen-api:
+    handler: com.impact.GetMenuItemAsPerSelectedAllergen
+
+    events:
+      - http:
+          path: /menuitemAsSelectedAllergen/{allergenId}
+          method: get
+
+  get-menuitemAsSelectedSubmenu-api:
+    handler: com.impact.GetMenuItemAsPerSelectedSubMenu
+
+    events:
+      - http:
+          path: /menuitemAsSelectedSubmenu/{submenu}
           method: get
 
