@@ -77,6 +77,30 @@
         "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-restaurant-api"
       }
     },
+    "GetDashallergenDashapiLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-allergen-api"
+      }
+    },
+    "GetDashmenuitemDashapiLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-menuitem-api"
+      }
+    },
+    "GetDashmenuitemAsSelectedAllergenDashapiLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-menuitemAsSelectedAllergen-api"
+      }
+    },
+    "GetDashmenuitemAsSelectedSubmenuDashapiLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/tasks-backend-api-dev-get-menuitemAsSelectedSubmenu-api"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -161,7 +185,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tasks-backend-api/dev/1618683487105-2021-04-17T18:18:07.105Z/target/tasks-api-java-dev.jar"
+          "S3Key": "serverless/tasks-backend-api/dev/1618823448054-2021-04-19T09:10:48.054Z/target/tasks-api-java-dev.jar"
         },
         "Handler": "com.impact.GetRestaurantHandler",
         "Runtime": "java8",
@@ -173,7 +197,7 @@
             "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
             "DB_NAME": "nandosdb",
             "DB_USER": "root",
-            "DB_PASSWORD": "shahanayogitawill2021!"
+            "DB_PASSWORD": "AWSImpact2021*"
           }
         },
         "Role": {
@@ -187,14 +211,186 @@
         "GetDashrestaurantDashapiLogGroup"
       ]
     },
-    "GetDashrestaurantDashapiLambdaVersiono8jdpViejw73SXVnQ3c6XGvqKwulSR8E9cXc5QtFE4": {
+    "GetDashallergenDashapiLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/tasks-backend-api/dev/1618823448054-2021-04-19T09:10:48.054Z/target/tasks-api-java-dev.jar"
+        },
+        "Handler": "com.impact.GetAllergenHandler",
+        "Runtime": "java8",
+        "FunctionName": "tasks-backend-api-dev-get-allergen-api",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "nandosdb",
+            "DB_USER": "root",
+            "DB_PASSWORD": "AWSImpact2021*"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetDashallergenDashapiLogGroup"
+      ]
+    },
+    "GetDashmenuitemDashapiLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/tasks-backend-api/dev/1618823448054-2021-04-19T09:10:48.054Z/target/tasks-api-java-dev.jar"
+        },
+        "Handler": "com.impact.GetMenuItemHandler",
+        "Runtime": "java8",
+        "FunctionName": "tasks-backend-api-dev-get-menuitem-api",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "nandosdb",
+            "DB_USER": "root",
+            "DB_PASSWORD": "AWSImpact2021*"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetDashmenuitemDashapiLogGroup"
+      ]
+    },
+    "GetDashmenuitemAsSelectedAllergenDashapiLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/tasks-backend-api/dev/1618823448054-2021-04-19T09:10:48.054Z/target/tasks-api-java-dev.jar"
+        },
+        "Handler": "com.impact.GetMenuItemAsPerSelectedAllergen",
+        "Runtime": "java8",
+        "FunctionName": "tasks-backend-api-dev-get-menuitemAsSelectedAllergen-api",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "nandosdb",
+            "DB_USER": "root",
+            "DB_PASSWORD": "AWSImpact2021*"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetDashmenuitemAsSelectedAllergenDashapiLogGroup"
+      ]
+    },
+    "GetDashmenuitemAsSelectedSubmenuDashapiLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/tasks-backend-api/dev/1618823448054-2021-04-19T09:10:48.054Z/target/tasks-api-java-dev.jar"
+        },
+        "Handler": "com.impact.GetMenuItemAsPerSelectedSubMenu",
+        "Runtime": "java8",
+        "FunctionName": "tasks-backend-api-dev-get-menuitemAsSelectedSubmenu-api",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "nandosinstance.cyvsgwhk3npl.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "nandosdb",
+            "DB_USER": "root",
+            "DB_PASSWORD": "AWSImpact2021*"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetDashmenuitemAsSelectedSubmenuDashapiLogGroup"
+      ]
+    },
+    "GetDashallergenDashapiLambdaVersionCa0uXtkHejpL7a8dBeCcTFYH4ME9R7msokclZLKCJk": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetDashallergenDashapiLambdaFunction"
+        },
+        "CodeSha256": "RsuhCIJjfQ8xgeb65j28WGEnb5DNQCW04lzPBxuHaQQ="
+      }
+    },
+    "GetDashmenuitemDashapiLambdaVersion24z3juqfmuFKFiLUcbSqUMkWKcWbAlYYwSNSk8o6o": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetDashmenuitemDashapiLambdaFunction"
+        },
+        "CodeSha256": "RsuhCIJjfQ8xgeb65j28WGEnb5DNQCW04lzPBxuHaQQ="
+      }
+    },
+    "GetDashmenuitemAsSelectedAllergenDashapiLambdaVersion8db0OPqJjDtAyUDX2szpylJ0cy1amykJYYycqlCcv3I": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetDashmenuitemAsSelectedAllergenDashapiLambdaFunction"
+        },
+        "CodeSha256": "RsuhCIJjfQ8xgeb65j28WGEnb5DNQCW04lzPBxuHaQQ="
+      }
+    },
+    "GetDashmenuitemAsSelectedSubmenuDashapiLambdaVersion9HC0msXAgqEMHF3FNTNlOQeQGMry9Z2F9rwoh5lE": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetDashmenuitemAsSelectedSubmenuDashapiLambdaFunction"
+        },
+        "CodeSha256": "RsuhCIJjfQ8xgeb65j28WGEnb5DNQCW04lzPBxuHaQQ="
+      }
+    },
+    "GetDashrestaurantDashapiLambdaVersionSVnpqnbd2lC498E2za7FjAqNQYL9fsoDq7JlafB0wEw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashrestaurantDashapiLambdaFunction"
         },
-        "CodeSha256": "ZDFDn5ssBruYdj+Qwstg3CdsH34oi6hvfJMshObbYUs="
+        "CodeSha256": "RsuhCIJjfQ8xgeb65j28WGEnb5DNQCW04lzPBxuHaQQ="
       }
     },
     "ApiGatewayRestApi": {
@@ -209,7 +405,7 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceRest": {
+    "ApiGatewayResourceRestaurants": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -218,19 +414,103 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "rest",
+        "PathPart": "restaurants",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodRestGet": {
+    "ApiGatewayResourceAllergens": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "allergens",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceMenuitems": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "menuitems",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceMenuitemasselectedallergen": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "menuitemAsSelectedAllergen",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceMenuitemasselectedallergenAllergenidVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceMenuitemasselectedallergen"
+        },
+        "PathPart": "{allergenId}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceMenuitemasselectedsubmenu": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "menuitemAsSelectedSubmenu",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceMenuitemasselectedsubmenuSubmenuVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceMenuitemasselectedsubmenu"
+        },
+        "PathPart": "{submenu}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodRestaurantsGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceRest"
+          "Ref": "ApiGatewayResourceRestaurants"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -267,7 +547,179 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618683484546": {
+    "ApiGatewayMethodAllergensGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceAllergens"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetDashallergenDashapiLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodMenuitemsGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceMenuitems"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetDashmenuitemDashapiLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodMenuitemasselectedallergenAllergenidVarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceMenuitemasselectedallergenAllergenidVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetDashmenuitemAsSelectedAllergenDashapiLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodMenuitemasselectedsubmenuSubmenuVarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceMenuitemasselectedsubmenuSubmenuVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetDashmenuitemAsSelectedSubmenuDashapiLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayDeployment1618823423008": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -276,7 +728,11 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodRestGet"
+        "ApiGatewayMethodRestaurantsGet",
+        "ApiGatewayMethodAllergensGet",
+        "ApiGatewayMethodMenuitemsGet",
+        "ApiGatewayMethodMenuitemasselectedallergenAllergenidVarGet",
+        "ApiGatewayMethodMenuitemasselectedsubmenuSubmenuVarGet"
       ]
     },
     "GetDashrestaurantDashapiLambdaPermissionApiGateway": {
@@ -315,6 +771,154 @@
           ]
         }
       }
+    },
+    "GetDashallergenDashapiLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDashallergenDashapiLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetDashmenuitemDashapiLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDashmenuitemDashapiLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetDashmenuitemAsSelectedAllergenDashapiLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDashmenuitemAsSelectedAllergenDashapiLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetDashmenuitemAsSelectedSubmenuDashapiLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetDashmenuitemAsSelectedSubmenuDashapiLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -323,10 +927,34 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
+    "GetDashallergenDashapiLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetDashallergenDashapiLambdaVersionCa0uXtkHejpL7a8dBeCcTFYH4ME9R7msokclZLKCJk"
+      }
+    },
+    "GetDashmenuitemDashapiLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetDashmenuitemDashapiLambdaVersion24z3juqfmuFKFiLUcbSqUMkWKcWbAlYYwSNSk8o6o"
+      }
+    },
+    "GetDashmenuitemAsSelectedAllergenDashapiLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetDashmenuitemAsSelectedAllergenDashapiLambdaVersion8db0OPqJjDtAyUDX2szpylJ0cy1amykJYYycqlCcv3I"
+      }
+    },
+    "GetDashmenuitemAsSelectedSubmenuDashapiLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetDashmenuitemAsSelectedSubmenuDashapiLambdaVersion9HC0msXAgqEMHF3FNTNlOQeQGMry9Z2F9rwoh5lE"
+      }
+    },
     "GetDashrestaurantDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashrestaurantDashapiLambdaVersiono8jdpViejw73SXVnQ3c6XGvqKwulSR8E9cXc5QtFE4"
+        "Ref": "GetDashrestaurantDashapiLambdaVersionSVnpqnbd2lC498E2za7FjAqNQYL9fsoDq7JlafB0wEw"
       }
     },
     "ServiceEndpoint": {

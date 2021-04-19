@@ -22,6 +22,38 @@ functions:
 
     events:
       - http:
-          path: /rest
+          path: /restaurants
+          method: get
+
+  get-allergen-api:
+    handler: com.impact.GetAllergenHandler
+
+    events:
+      - http:
+          path: /allergens
+          method: get
+
+  get-menuitem-api:
+    handler: com.impact.GetMenuItemHandler
+
+    events:
+      - http:
+          path: /menuitems
+          method: get
+
+  get-menuitemAsSelectedAllergen-api:
+    handler: com.impact.GetMenuItemAsPerSelectedAllergen
+
+    events:
+      - http:
+          path: /menuitemAsSelectedAllergen/{allergenId}
+          method: get
+
+  get-menuitemAsSelectedSubmenu-api:
+    handler: com.impact.GetMenuItemAsPerSelectedSubMenu
+
+    events:
+      - http:
+          path: /menuitemAsSelectedSubmenu/{submenu}
           method: get
 
