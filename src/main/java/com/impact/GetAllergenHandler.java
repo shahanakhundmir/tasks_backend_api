@@ -1,3 +1,4 @@
+//Allergen Handler
 package com.impact;
 import com.impact.model.Allergen;
 import java.util.ArrayList;
