@@ -23,7 +23,7 @@ import java.util.Map;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-public class GetAllergensByMenuId implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class GetAllergensByMenuId_old implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
     private static final Logger LOG = LogManager.getLogger(GetAllergenHandler.class);
     private Connection connection= null;
     private PreparedStatement preparedStatement=null;

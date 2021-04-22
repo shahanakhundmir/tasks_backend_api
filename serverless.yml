@@ -38,23 +38,8 @@ functions:
       - http:
           path: /menuallergens
           method: get
-  get-menuitemAsSelectedAllergen-api:
-    handler: com.impact.GetMenuItemAsPerSelectedAllergen
-    events:
-      - http:
-          path: /menuitemAsSelectedAllergen/{allergenId}
-          method: get
-  get-menuitemAsSelectedSubmenu-api:
-    handler: com.impact.GetMenuItemAsPerSelectedSubMenu
-    events:
-      - http:
-          path: /menuitemAsSelectedSubmenu/{submenu}
-          method: get
-  get-allergens-by-menuid-api:
-    handler:  com.impact.GetAllergensByMenuId
-    events:
-      - http:
-          path: /menuItem/{menu_id}/allergens
-          method: get
+  
+  
+  
 
 

@@ -5,7 +5,6 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.impact.model.Allergen;
 import com.impact.model.MenuItem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GetMenuItemAsPerSelectedAllergen implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class GetMenuItemAsPerSelectedSubMenu_old implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
     private static final Logger LOG = LogManager.getLogger(GetAllergenHandler.class);
     private Connection connection= null;
     private PreparedStatement preparedStatement=null;
@@ -39,9 +38,8 @@ public class GetMenuItemAsPerSelectedAllergen implements RequestHandler<APIGatew
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context){
         LOG.info("received the request");
-        String allergenId = request.getPathParameters().get("allergenId");
+        String submenu = request.getPathParameters().get("submenu");
         List<MenuItem> menuItems = new ArrayList<>();
-        int allergyId=Integer.parseInt(allergenId);
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(
@@ -50,9 +48,8 @@ public class GetMenuItemAsPerSelectedAllergen implements RequestHandler<APIGatew
                             System.getenv("DB_NAME"),
                             System.getenv("DB_USER"),
                             System.getenv("DB_PASSWORD")));
-            preparedStatement = connection.prepareStatement("select * from nandosdb.MenuItems where item_id in " +
-                    "(select item_id from nandosdb.MenuItem_Allergen where allergen_id = ?)");
-            preparedStatement.setInt(1,allergyId);
+            preparedStatement = connection.prepareStatement("select * from nandosdb.MenuItems where sub_menu = ?");
+            preparedStatement.setString(1,submenu);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 MenuItem item = new MenuItem(
