@@ -14,7 +14,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
@@ -42,23 +41,23 @@ public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyReque
       try{
          Class.forName("com.mysql.jdbc.Driver");
          connection = DriverManager.getConnection(
-               String.format("jdbc:mysql://%s/%s?user=%s&password=%s",
-                     System.getenv("DB_HOST"),
-                     System.getenv("DB_NAME"),
-                     System.getenv("DB_USER"),
-                     System.getenv("DB_PASSWORD")));
+                 String.format("jdbc:mysql://%s/%s?user=%s&password=%s",
+                         System.getenv("DB_HOST"),
+                         System.getenv("DB_NAME"),
+                         System.getenv("DB_USER"),
+                         System.getenv("DB_PASSWORD")));
          preparedStatement = connection.prepareStatement("select * from Restaurant");
          resultSet = preparedStatement.executeQuery();
          while(resultSet.next()){
             Restaurant restaurant = new Restaurant(resultSet.getInt("rest_id"),
-                  resultSet.getString("rest_name"),
-                  resultSet.getString("rest_branch"),
-                  resultSet.getString("allergen_safety"),
-                  resultSet.getDate("sys_creation_date"),
-                  resultSet.getDate("sys_update_date"),
-                  resultSet.getInt("user_id"),
-                  resultSet.getString("application_id"),
-                  resultSet.getString("version_code"));
+                    resultSet.getString("rest_name"),
+                    resultSet.getString("rest_branch"),
+                    resultSet.getString("allergen_safety"),
+                    resultSet.getDate("sys_creation_date"),
+                    resultSet.getDate("sys_update_date"),
+                    resultSet.getInt("user_id"),
+                    resultSet.getString("application_id"),
+                    resultSet.getString("version_code"));
             restaurants.add(restaurant);
          }
       }

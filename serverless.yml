@@ -44,6 +44,14 @@ functions:
       - http:
           path: /menuitemAsSelectedSubmenu/{submenu}
           method: get
+
+  get-menuitem-allergens-api:
+    handler: com.impact.GetMenuItemsAllergenHandler
+    events:
+      - http:
+          path: /menuallergens
+          method: get
+
   post-allergenAsPerSelectedMenuItem-api:
     handler: com.impact.GetAllergensAsPerSelectedMenuItem
     events:
