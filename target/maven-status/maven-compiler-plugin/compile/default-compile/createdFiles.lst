@@ -4,8 +4,11 @@ com\impact\model\Restaurant.class
 com\serverless\ApiGatewayResponse$Builder.class
 com\serverless\Response.class
 com\serverless\ApiGatewayResponse.class
+com\impact\GetAllergensByMenuId.class
 com\impact\model\MenuItem.class
 com\impact\model\Allergen.class
 com\impact\GetRestaurantHandler.class
+com\impact\GetMenuItemsAllergenHandler.class
 com\impact\GetMenuItemAsPerSelectedAllergen.class
 com\impact\GetMenuItemHandler.class
+com\impact\model\MenuAllergen.class

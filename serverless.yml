@@ -32,6 +32,12 @@ functions:
       - http:
           path: /menuitems
           method: get
+  get-menuitem-allergens-api:
+    handler: com.impact.GetMenuItemsAllergenHandler
+    events:
+      - http:
+          path: /menuallergens
+          method: get
   get-menuitemAsSelectedAllergen-api:
     handler: com.impact.GetMenuItemAsPerSelectedAllergen
     events:
@@ -44,3 +50,11 @@ functions:
       - http:
           path: /menuitemAsSelectedSubmenu/{submenu}
           method: get
+  get-allergens-by-menuid-api:
+    handler:  com.impact.GetAllergensByMenuId
+    events:
+      - http:
+          path: /menuItem/{menu_id}/allergens
+          method: get
+
+
