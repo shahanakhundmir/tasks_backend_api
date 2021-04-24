@@ -1,12 +1,12 @@
 com\impact\GetAllergenHandler.class
 com\impact\GetMenuItemAsPerSelectedSubMenu.class
 com\impact\model\Restaurant.class
-com\serverless\ApiGatewayResponse$Builder.class
 com\serverless\Response.class
-com\serverless\ApiGatewayResponse.class
+com\impact\ApiGatewayResponse$Builder.class
 com\impact\model\MenuItem.class
 com\impact\model\Allergen.class
 com\impact\GetRestaurantHandler.class
+com\impact\ApiGatewayResponse.class
 com\impact\GetMenuItemsAllergenHandler.class
 com\impact\GetAllergensAsPerSelectedMenuItem.class
 com\impact\GetMenuItemAsPerSelectedAllergen.class

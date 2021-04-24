@@ -1,3 +1,20 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+*.class
+/target
+/bin/
+/.settings/
+.project
+.classpath
+.idea
+*.iml
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Serverless directories
+.serverless
+
+config.dev.json

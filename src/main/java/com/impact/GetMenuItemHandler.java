@@ -75,6 +75,7 @@ public class GetMenuItemHandler implements RequestHandler<APIGatewayProxyRequest
         finally{
             closeConnection();
         }
+
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
         response.setStatusCode(200);
         Map<String, String> headers = new HashMap<>();

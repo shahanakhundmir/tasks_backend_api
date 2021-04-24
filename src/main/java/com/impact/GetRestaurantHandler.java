@@ -81,6 +81,7 @@ public class GetRestaurantHandler implements RequestHandler<APIGatewayProxyReque
       {
          LOG.error("unable to marshall Restaurant table", e);
       }
+
       return response;
    }
 }

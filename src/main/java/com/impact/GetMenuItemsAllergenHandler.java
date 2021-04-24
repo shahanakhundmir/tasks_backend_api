@@ -62,6 +62,7 @@ public class GetMenuItemsAllergenHandler implements RequestHandler<APIGatewayPro
         catch (Exception e){
             LOG.error(String.format("Unable to query database for menu Allergens"),e);
         }
+
         finally{
             closeConnection();
         }

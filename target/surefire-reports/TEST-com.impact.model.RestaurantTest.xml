@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.impact.model.RestaurantTest" time="0.086" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.impact.model.RestaurantTest" time="0.035" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\yogit\AppData\Local\Temp\surefire5592079768452252094\surefirebooter3321030640115495015.jar C:\Users\yogit\AppData\Local\Temp\surefire5592079768452252094 2021-04-22T12-06-38_085-jvmRun1 surefire15694792773839939826tmp surefire_06191810492466809088tmp"/>
+    <property name="sun.java.command" value="C:\Users\yogit\AppData\Local\Temp\surefire17219111716857379961\surefirebooter3852142435801673368.jar C:\Users\yogit\AppData\Local\Temp\surefire17219111716857379961 2021-04-22T13-00-08_986-jvmRun1 surefire6025017708304450771tmp surefire_02518775807895289165tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\MyPractice\TechReturners\ReactProj\cloneTm\tasks_backend_api\target\test-classes;C:\MyPractice\TechReturners\ReactProj\cloneTm\tasks_backend_api\target\classes;C:\Users\yogit\.m2\repository\com\amazonaws\aws-lambda-java-events\3.8.0\aws-lambda-java-events-3.8.0.jar;C:\Users\yogit\.m2\repository\joda-time\joda-time\2.6\joda-time-2.6.jar;C:\Users\yogit\.m2\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar;C:\Users\yogit\.m2\repository\com\amazonaws\aws-lambda-java-log4j2\1.1.0\aws-lambda-java-log4j2-1.1.0.jar;C:\Users\yogit\.m2\repository\com\amazonaws\aws-lambda-java-core\1.2.0\aws-lambda-java-core-1.2.0.jar;C:\Users\yogit\.m2\repository\org\apache\logging\log4j\log4j-core\2.8.2\log4j-core-2.8.2.jar;C:\Users\yogit\.m2\repository\org\apache\logging\log4j\log4j-api\2.8.2\log4j-api-2.8.2.jar;C:\Users\yogit\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.10\jackson-core-2.9.10.jar;C:\Users\yogit\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.10\jackson-databind-2.9.10.jar;C:\Users\yogit\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.10\jackson-annotations-2.9.10.jar;C:\Users\yogit\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\yogit\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\yogit\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\yogit\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\yogit\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\yogit\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\yogit\AppData\Local\Temp\surefire5592079768452252094\surefirebooter3321030640115495015.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\yogit\AppData\Local\Temp\surefire17219111716857379961\surefirebooter3852142435801673368.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -55,6 +55,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="testRestName" classname="com.impact.model.RestaurantTest" time="0.058"/>
-  <testcase name="testRestId" classname="com.impact.model.RestaurantTest" time="0.001"/>
+  <testcase name="testRestName" classname="com.impact.model.RestaurantTest" time="0.025"/>
+  <testcase name="testRestId" classname="com.impact.model.RestaurantTest" time="0"/>
 </testsuite>

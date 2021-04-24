@@ -1,5 +1,6 @@
 package com.impact.model;
 import java.util.Date;
+
 public class MenuAllergen {
     private int item_id;
     private int allergen_id;
